@@ -1,14 +1,30 @@
 const initState = {
-  age: 21
+  age: 21,
+  history: []
 };
 
 const rootReducer = (state = initState, action) => {
   const newState = { ...state };
-  if (action.type === "ADD") {
-    newState.age += action.val;
-  }
-  if (action.type === "SUBTRACT") {
-    newState.age -= action.val;
+
+  //Updating state Immutable way
+  switch (action.type) {
+    case "ADD":
+      // newState.age += action.value;
+      // break;
+      return {
+        ...state,
+        age: state.age + action.value,
+        history: state.history.concat({ age: state.age + action.value })
+      };
+    case "SUBTRACT":
+      // newState.age -= action.value;
+      // break;
+
+      return {
+        ...state,
+        age: state.age - action.value,
+        history: state.history.concat({ age: state.age - action.value })
+      };
   }
   return newState;
 };

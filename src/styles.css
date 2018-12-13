@@ -2,3 +2,11 @@
   font-family: sans-serif;
   text-align: center;
 }
+
+.history {
+  list-style-type: none;
+  padding: 10px 0;
+  border: 3px solid #f9e5ad;
+  margin: 10px;
+  background-color: #c7bb70;
+}

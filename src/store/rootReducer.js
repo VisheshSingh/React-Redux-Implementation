@@ -5,10 +5,10 @@ const initState = {
 const rootReducer = (state = initState, action) => {
   const newState = { ...state };
   if (action.type === "ADD") {
-    newState.age++;
+    newState.age += action.val;
   }
   if (action.type === "SUBTRACT") {
-    newState.age--;
+    newState.age -= action.val;
   }
   return newState;
 };

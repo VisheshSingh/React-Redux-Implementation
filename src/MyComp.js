@@ -15,7 +15,17 @@ class MyComp extends Component {
         <h3>History</h3>
         <ul>
           {this.props.history.map(item => {
-            return <li className="history">{item.age}</li>;
+            return (
+              <li
+                key={item.id}
+                onClick={() => {
+                  this.props.deleteMe(item.id);
+                }}
+                className="history"
+              >
+                {item.age}
+              </li>
+            );
           })}
         </ul>
       </div>
@@ -32,7 +42,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onAgeUp: () => dispatch({ type: "ADD", value: 10 }),
-    onAgeDown: () => dispatch({ type: "SUBTRACT", value: 5 })
+    onAgeDown: () => dispatch({ type: "SUBTRACT", value: 5 }),
+    deleteMe: id => dispatch({ type: "DEL_ITEM", key: id })
   };
 };
 

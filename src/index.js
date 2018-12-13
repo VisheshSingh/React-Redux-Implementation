@@ -22,12 +22,6 @@ class App extends Component {
     }));
   };
 
-  onAgeDown = () => {
-    this.setState({
-      ...this.state,
-      age: --this.state.age
-    });
-  };
   render() {
     return (
       <div className="App">
